@@ -4,7 +4,7 @@ CC		= g++
 CFLAGS	= -Wall -std=c++17 -O2 -I.
 
 LINKER	= g++
-LFLAGS	= -Wall	-I. -lm
+LFLAGS	= -Wall	-I. -lm -lpthread
 
 SRCPATH = src
 OBJPATH = obj

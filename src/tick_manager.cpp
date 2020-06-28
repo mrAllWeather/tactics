@@ -7,7 +7,7 @@ TickManager::TickManager(){
     this->tick_loop = std::thread(&TickManager::_internal_loop, this);
 }
 
-TickManager::TickManager(){
+TickManager::~TickManager(){
     ticking = false;
     shutdown = true;
     this->tick_loop.join();
@@ -40,7 +40,6 @@ void TickManager::_internal_loop(){
     std::chrono::duration<double, std::milli> delta;
 
     while(!shutdown){
-        
         while(ticking){
             t1 = std::chrono::high_resolution_clock::now();
 
@@ -58,7 +57,13 @@ void TickManager::_internal_loop(){
 
             t2 = std::chrono::high_resolution_clock::now();
             delta = t2 - t1;
-            std::this_thread::sleep_for(std::chrono::milliseconds(tick_delay_ms - delta.count()));
+            std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int64_t>(tick_delay_ms - delta.count())));
         }
     }
+}
+
+void TickManager::shut_down(){
+    this->ticking = false;
+    this->shutdown = true;
+    this->~TickManager();
 }

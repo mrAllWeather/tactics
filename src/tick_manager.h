@@ -21,6 +21,8 @@ public:
     void tick_rate(int delay_ms);
     void add(std::shared_ptr<Tickable> T);
     void remove(std::shared_ptr<Tickable> T);
+
+    void shut_down();
 private:
     TickManager();
     ~TickManager();
