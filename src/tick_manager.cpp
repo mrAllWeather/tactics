@@ -1,7 +1,7 @@
 #include "tick_manager.h"
 
 #include <chrono>
-
+#include <iostream> // TEMPORARY
 
 TickManager::TickManager(){
     this->tick_loop = std::thread(&TickManager::_internal_loop, this);
@@ -65,5 +65,4 @@ void TickManager::_internal_loop(){
 void TickManager::shut_down(){
     this->ticking = false;
     this->shutdown = true;
-    this->~TickManager();
 }

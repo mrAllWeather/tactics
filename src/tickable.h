@@ -2,7 +2,7 @@
 
 class Tickable {
 public:
-    Tickable();
+    Tickable(){};
     virtual void Tick()=0;
 private:
 
