@@ -3,6 +3,11 @@
  * notice and this notice are preserved.  This file is offered as-is,
  * without any warranty. */
 
+/* Author: Ekaterinburg (Konstantin-2)
+ * Source: https://github.com/Konstantin-2/misc
+ * Provinence: http://www.cplusplus.com/forum/general/247937/
+ */
+ 
 #pragma once
 #include <utility>
 #include <atomic>
